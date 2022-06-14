@@ -10,7 +10,7 @@ pub struct NoPointerCapture;
 pub fn pointer_capture_detector(
     windows: Res<Windows>,
     mut is_pointer_captured: ResMut<IsPointerCaptured>,
-    node_query: Query<(&Node, &GlobalTransform), Without<NoPointerCapture>>,
+    node_query: Query<(&Node, &GlobalTransform, &Visibility), Without<NoPointerCapture>>,
 ) {
     is_pointer_captured.0 = windows
         .get_primary()
@@ -18,7 +18,8 @@ pub fn pointer_capture_detector(
         .map(|pointer_position| {
             node_query
                 .iter()
-                .any(|(&Node { size }, &GlobalTransform { translation, .. })| {
+                .filter(|(_, _, &Visibility { is_visible })| is_visible)
+                .any(|(&Node { size }, &GlobalTransform { translation, .. }, ..)| {
                     let node_position = translation.xy();
                     let half_size = 0.5 * size;
                     let min = node_position - half_size;

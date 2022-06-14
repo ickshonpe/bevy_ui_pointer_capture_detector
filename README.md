@@ -1,18 +1,18 @@
 # bevy_ui_pointer_capture_detector
 
 A plugin that detects if the mouse pointer is above a Bevy Ui Node.
+* supports Bevy 0.7
 
-## usage
+## Usage
 
-in Cargo.toml, add 
+In your ```Cargo.toml``` ```[dependencies]``` section, add 
 
 ```toml
-[dependencies]
-bevy = "0.7.0"
-bevy_ui_pointer_capture_detector = "0.1"
+bevy_ui_pointer_capture_detector = "0.1.1"
 ```
 
-src/main.rs
+This example draws a square red UI node. Each update it sets the 
+color of the background depending on if the mouse pointer is over the red node:
 
 ```rust
 
@@ -57,10 +57,10 @@ fn is_pointer_captured(
 
 fn main() {
     App::new()
-    .add_plugins(DefaultPlugins)
-    .add_plugin(BevyUiPointerCaptureDetectorPlugin)
-    .add_startup_system(setup)
-    .add_system(is_pointer_captured)
-    .run();
+        .add_plugins(DefaultPlugins)
+        .add_plugin(BevyUiPointerCaptureDetectorPlugin)
+        .add_startup_system(setup)
+        .add_system(is_pointer_captured)
+        .run();
 }
 ```
