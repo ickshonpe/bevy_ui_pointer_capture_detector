@@ -1,6 +1,6 @@
 # bevy_ui_pointer_capture_detector
 
-Plugin that detects if the mouse is over a Bevy Ui Node.
+A plugin that detects if the mouse pointer is above a Bevy Ui Node.
 
 ## usage
 
