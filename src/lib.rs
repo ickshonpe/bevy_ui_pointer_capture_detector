@@ -1,9 +1,14 @@
 use bevy::math::Vec3Swizzles;
 use bevy::prelude::*;
 
+/// resource updated each frame
+/// True if pointer is above a visible bevy ui node.
+/// Otherwise, false.
 #[derive(Clone, Copy, Debug, Default)]
 pub struct IsPointerCaptured(pub bool);
 
+/// Marker component that tells the detector system
+/// not to check if a node captures the pointer
 #[derive(Component)]
 pub struct NoPointerCapture;
 
