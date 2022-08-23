@@ -24,8 +24,8 @@ pub fn pointer_capture_detector(
             node_query
                 .iter()
                 .filter(|(_, _, &Visibility { is_visible })| is_visible)
-                .any(|(&Node { size }, &GlobalTransform { translation, .. }, ..)| {
-                    let node_position = translation.xy();
+                .any(|(&Node { size }, &gtf, ..)| {
+                    let node_position = gtf.translation().xy();
                     let half_size = 0.5 * size;
                     let min = node_position - half_size;
                     let max = node_position + half_size;

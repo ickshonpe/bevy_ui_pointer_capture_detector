@@ -3,11 +3,11 @@ use bevy_ui_pointer_capture_detector::*;
 
 fn setup(mut commands: Commands) {
     commands
-        .spawn_bundle(UiCameraBundle::default())
+        .spawn_bundle(Camera2dBundle::default())
         .commands()
         .spawn_bundle(NodeBundle {
             style: Style {
-                margin: Rect {
+                margin: UiRect {
                     left: Val::Px(100.0),
                     bottom: Val::Px(100.0),
                     right: Val::Auto,
@@ -25,7 +25,7 @@ fn setup(mut commands: Commands) {
         .commands()
         .spawn_bundle(NodeBundle {
             style: Style {
-                margin: Rect {
+                margin: UiRect {
                     left: Val::Px(200.0),
                     bottom: Val::Px(300.0),
                     right: Val::Auto,
@@ -44,7 +44,7 @@ fn setup(mut commands: Commands) {
         .commands()
         .spawn_bundle(NodeBundle {
             style: Style {
-                margin: Rect {
+                margin: UiRect {
                     left: Val::Px(100.0),
                     bottom: Val::Auto,
                     right: Val::Auto,
