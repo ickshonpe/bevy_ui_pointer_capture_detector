@@ -80,14 +80,15 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
             NoPointerCapture,
         ))
         .with_children(|builder| {
-            builder.spawn(
+            builder.spawn((
                 TextBundle::from_section("not capturing", text_style.clone())
                     .with_text_alignment(TextAlignment::CENTER)
                     .with_style(Style {
                         max_size: Size::new(Val::Px(150.), Val::Px(150.)),
                         ..Default::default()
                     }),
-            );
+                NoPointerCapture,
+            ));
         })
         .commands()
         .spawn(NodeBundle {
