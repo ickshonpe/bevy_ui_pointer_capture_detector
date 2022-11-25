@@ -1,14 +1,14 @@
 # bevy_ui_pointer_capture_detector
 
 A plugin that detects if the mouse pointer is above a Bevy Ui Node.
-* supports Bevy 0.8
+* supports Bevy 0.9
 
 ## Usage
 
 In your ```Cargo.toml``` ```[dependencies]``` section, add 
 
 ```toml
-bevy_ui_pointer_capture_detector = "0.2"
+bevy_ui_pointer_capture_detector = "0.3"
 ```
 
 This example draws a square red UI node. Each update it sets the 
@@ -23,9 +23,9 @@ fn setup(
     mut commands: Commands
 ) {
     commands
-        .spawn_bundle(Camera2dBundle::default())
+        .spawn(Camera2dBundle::default())
         .commands()
-        .spawn_bundle(NodeBundle {
+        .spawn(NodeBundle {
             style: Style {
                 margin: UiRect { 
                     left: Val::Px(100.0), 
@@ -39,7 +39,7 @@ fn setup(
                 },
                 ..Default::default()
             },
-            color: UiColor(Color::RED),
+            background_color: BackgroundColor(Color::RED),
             ..Default::default()
         });
 }
