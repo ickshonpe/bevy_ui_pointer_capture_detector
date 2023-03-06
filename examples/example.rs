@@ -5,6 +5,7 @@ use bevy_ui_pointer_capture_detector::*;
 struct CaptureTextMarker;
 
 fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
+    commands.insert_resource(UiScale { scale: 1.5 });
     let text_style = TextStyle {
         font: asset_server.load("fonts/FiraSans-Bold.ttf"),
         font_size: 32.,
