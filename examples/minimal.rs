@@ -1,24 +1,21 @@
-
 use bevy::prelude::*;
 use bevy_ui_pointer_capture_detector::*;
 
-fn setup(
-    mut commands: Commands
-) {
+fn setup(mut commands: Commands) {
     commands
         .spawn(Camera2dBundle::default())
         .commands()
         .spawn(NodeBundle {
             style: Style {
-                margin: UiRect { 
-                    left: Val::Px(100.0), 
-                    bottom: Val::Px(100.0), 
-                    right: Val::Auto, 
-                    top: Val::Auto 
+                margin: UiRect {
+                    left: Val::Px(100.0),
+                    bottom: Val::Px(100.0),
+                    right: Val::Auto,
+                    top: Val::Auto,
                 },
-                size: Size { 
-                    width: Val::Px(100.0), 
-                    height: Val::Px(100.0) 
+                size: Size {
+                    width: Val::Px(100.0),
+                    height: Val::Px(100.0),
                 },
                 ..Default::default()
             },
@@ -27,15 +24,12 @@ fn setup(
         });
 }
 
-fn is_pointer_captured(
-    capture: Res<UiPointerCaptureStatus>,
-    mut clear_color: ResMut<ClearColor>,
-) {
+fn is_pointer_captured(capture: Res<UiPointerCaptureStatus>, mut clear_color: ResMut<ClearColor>) {
     clear_color.0 = if capture.is_captured() {
-            Color::DARK_GRAY
-        } else {
-            Color::WHITE
-        };
+        Color::DARK_GRAY
+    } else {
+        Color::WHITE
+    };
 }
 
 fn main() {
